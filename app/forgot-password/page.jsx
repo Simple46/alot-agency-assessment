@@ -1,3 +1,5 @@
+"use client";
+
 import AuthLayout from '@/components/auth/AuthLayout'
 import React from 'react'
 import ForgetPasswordForm from '@/components/auth/ForgetPasswordForm'
