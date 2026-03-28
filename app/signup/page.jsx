@@ -28,7 +28,7 @@ export default function SignupPage() {
 
   const handleProcessingClose = () => {
     setShowProcessing(false);
-    router.push(`/verify-otp?email=${encodeURIComponent(pendingEmail)}`);
+    router.push(`/verify-otp.html?email=${encodeURIComponent(pendingEmail)}`);
   };
 
   return (
