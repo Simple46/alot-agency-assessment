@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import AuthLayout from '@/components/auth/AuthLayout';
 import Button from '@/components/ui/Button';
@@ -11,8 +11,8 @@ import Alert from '@/components/ui/Alert';
 export default function VerifyOtpPage() {
   const { verifyOtp } = useAuth();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const email = searchParams.get('email');
+  //get email not from query params but from router state (passed from signup page)
+  const email = router.query.email || (router.state && router.state.email);
   const [otp, setOtp] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
