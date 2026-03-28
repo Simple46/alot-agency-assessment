@@ -26,9 +26,9 @@ export default function ForgotPasswordForm() {
     setLoading(true);
     try {
       const res = await forgotPassword(email);
-      setMessage(`Reset link sent! (mock token: ${res.token})`);
+      // setMessage(`Reset link sent! (mock token: ${res.token})`);
       // navigate to reset password page with token (in real app)
-      router.push(`/reset-password?token=${res.token}`);
+      // router.push(`/reset-password?token=${res.token}`);
     } catch (err) {
       setError(err.message);
     } finally {
