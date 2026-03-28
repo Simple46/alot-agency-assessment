@@ -4,7 +4,11 @@ import { useState } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import Button from '../ui/Button';
 import Input from '../ui/Input';
-import Alert from '../ui/Alert';
+import Alert from '../ui/Alert'; 
+import { useRouter } from 'next/navigation'
+
+
+
 
 export default function ForgotPasswordForm() {
   const { forgotPassword } = useAuth();
@@ -12,6 +16,8 @@ export default function ForgotPasswordForm() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,6 +27,8 @@ export default function ForgotPasswordForm() {
     try {
       const res = await forgotPassword(email);
       setMessage(`Reset link sent! (mock token: ${res.token})`);
+      // navigate to reset password page with token (in real app)
+      router.push(`/reset-password?token=${res.token}`);
     } catch (err) {
       setError(err.message);
     } finally {
