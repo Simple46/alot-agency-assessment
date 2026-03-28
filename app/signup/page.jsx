@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "@/context/AuthContext";
-import AuthLayout from "@/components/auth/AuthLayout";
-import SignupForm from "@/components/auth/SignupForm";
-import Modal from "@/components/ui/Modal";
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
+import AuthLayout from '@/components/auth/AuthLayout';
+import SignupForm from '@/components/auth/SignupForm';
+import Modal from '@/components/ui/Modal';
 
 export default function SignupPage() {
   const { signup } = useAuth();
   const router = useRouter();
   const [showProcessing, setShowProcessing] = useState(false);
-  const [pendingEmail, setPendingEmail] = useState("");
+  const [pendingEmail, setPendingEmail] = useState('');
 
   const handleSignup = async (formData) => {
     try {
